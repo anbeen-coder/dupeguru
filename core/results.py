@@ -325,7 +325,7 @@ class Results(Markable):
             del self.__group_of_duplicate[dupe]
             self._remove_mark_flag(dupe)
             self.__total_count -= 1
-            self.__total_size -= dupe.size
+            self.__total_size = max(0, self.__total_size - dupe.size)
             if not group:
                 del self.__group_of_duplicate[ref]
                 self.__groups.remove(group)
